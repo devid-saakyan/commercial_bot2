@@ -60,7 +60,7 @@ if new_link != None:
     print(new_link)
     bot.send_message(719274325, 'Пополнение в ПИК\n'
                                 'Ссылка: {}'.format(new_link))
-driver.quit()
+#driver.quit()
 time.sleep(10)
 
 driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=5001)
@@ -79,7 +79,7 @@ spisok_ingrad = array_of_links
 if new_link != None:
     bot.send_message(719274325, 'Пополнение в ИНГРАД\n'
                                 'Ссылка: {}'.format(new_link))
-driver.quit()
+#driver.quit()
 time.sleep(10)
 
 
@@ -99,7 +99,7 @@ spisok_samolyot = array_of_links
 if new_link != None:
     bot.send_message(719274325, 'Пополнение в Самолёт\n'
                                  'Ссылка: {}'.format(new_link))
-driver.quit()
+#driver.quit()
 time.sleep(10)
 
 
@@ -119,7 +119,7 @@ spisok_samolyot_auction = array_of_links
 if new_link != None:
     bot.send_message(719274325, 'Пополнение в Самолет - аукцион\n'
                                 'Ссылка: {}'.format(new_link))
-driver.quit()
+#driver.quit()
 time.sleep(10)
 
 
@@ -139,7 +139,7 @@ spisok_fsk = array_of_links
 if new_link != None:
     bot.send_message(719274325, 'Пополнение в ФСК\n'
                                 'Ссылка: {}'.format(new_link))
-driver.quit()
+#driver.quit()
 time.sleep(10)
 
 
@@ -159,6 +159,6 @@ spisok_lsr = array_of_links
 if new_link != None:
     bot.send_message(719274325, 'Пополнение в ЛСР\n'
                                  'Ссылка: {}'.format(new_link))
-driver.quit()
+#driver.quit()
 time.sleep(10)
 
