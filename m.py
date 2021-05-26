@@ -61,6 +61,7 @@ if new_link != None:
     bot.send_message(719274325, 'Пополнение в ПИК\n'
                                 'Ссылка: {}'.format(new_link))
 driver.quit()
+time.sleep(10)
 
 driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 driver.get('https://www.ingrad.ru/commercial/')
@@ -79,6 +80,8 @@ if new_link != None:
     bot.send_message(719274325, 'Пополнение в ИНГРАД\n'
                                 'Ссылка: {}'.format(new_link))
 driver.quit()
+time.sleep(10)
+
 
 driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 driver.get('https://samolet.ru/commercial/')
@@ -97,6 +100,8 @@ if new_link != None:
     bot.send_message(719274325, 'Пополнение в Самолёт\n'
                                  'Ссылка: {}'.format(new_link))
 driver.quit()
+time.sleep(10)
+
 
 driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 driver.get('https://auction.samolet.ru/catalog')
@@ -115,6 +120,8 @@ if new_link != None:
     bot.send_message(719274325, 'Пополнение в Самолет - аукцион\n'
                                 'Ссылка: {}'.format(new_link))
 driver.quit()
+time.sleep(10)
+
 
 driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 driver.get('https://fsk.ru/kommercheskaya-nedvizhimost')
@@ -133,6 +140,8 @@ if new_link != None:
     bot.send_message(719274325, 'Пополнение в ФСК\n'
                                 'Ссылка: {}'.format(new_link))
 driver.quit()
+time.sleep(10)
+
 
 driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 driver.get('https://www.lsr.ru/msk/')
@@ -151,3 +160,5 @@ if new_link != None:
     bot.send_message(719274325, 'Пополнение в ЛСР\n'
                                  'Ссылка: {}'.format(new_link))
 driver.quit()
+time.sleep(10)
+
