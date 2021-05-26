@@ -63,7 +63,7 @@ if new_link != None:
 driver.quit()
 time.sleep(10)
 
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=os.environ.get("PORT", 5001))
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=5001)
 driver.get('https://www.ingrad.ru/commercial/')
 time.sleep(5)
 array_of_links = []
@@ -83,7 +83,7 @@ driver.quit()
 time.sleep(10)
 
 
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=os.environ.get("PORT", 5002))
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=5002)
 driver.get('https://samolet.ru/commercial/')
 time.sleep(5)
 array_of_links = []
@@ -103,7 +103,7 @@ driver.quit()
 time.sleep(10)
 
 
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=os.environ.get("PORT", 5005))
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=5005)
 driver.get('https://auction.samolet.ru/catalog')
 time.sleep(5)
 array_of_links = []
@@ -123,7 +123,7 @@ driver.quit()
 time.sleep(10)
 
 
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=os.environ.get("PORT", 5003))
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port= 5003)
 driver.get('https://fsk.ru/kommercheskaya-nedvizhimost')
 time.sleep(5)
 array_of_links = []
@@ -143,7 +143,7 @@ driver.quit()
 time.sleep(10)
 
 
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=os.environ.get("PORT", 5004))
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=5004)
 driver.get('https://www.lsr.ru/msk/')
 time.sleep(5)
 array_of_links = []
