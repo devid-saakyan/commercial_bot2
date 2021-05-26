@@ -45,24 +45,24 @@ spisok_lsr = ['https://www.lsr.ru/msk/zhilye-kompleksy/zilart/', 'https://www.ls
               'https://www.lsr.ru/msk/zhilye-kompleksy/n-nahabino/', 'https://www.lsr.ru/msk/zhilye-kompleksy/nakhabino-yasnoe/', 'https://www.lsr.ru/msk/zhilye-kompleksy/grunevald/',
               'https://www.lsr.ru/msk/zhilye-kompleksy/new-domodedovo/', 'https://www.lsr.ru/msk/zhilye-kompleksy/donskoy-olimp/']
 #, 'https://www.lsr.ru/msk/biznes-tsentry/novyj-balchug/'
-driver.get('https://www.pik.ru/projects/commercial')
-time.sleep(5)
-links = driver.find_element_by_class_name('cmHIDI').find_elements_by_tag_name('a')
-array_of_links = []
-new_link = None
-for i in links:
-    array_of_links.append(i.get_attribute('href'))
-if len(array_of_links) > len(spisok_pik):
-    for i in array_of_links:
-        if i not in spisok_pik:
-            new_link = i
-spisok_pik = array_of_links
-if new_link != None:
-    print(new_link)
-    bot.send_message(719274325, 'Пополнение в ПИК\n'
-                                'Ссылка: {}'.format(new_link))
-driver.quit()
-time.sleep(10)
+# driver.get('https://www.pik.ru/projects/commercial')
+# time.sleep(5)
+# links = driver.find_element_by_class_name('cmHIDI').find_elements_by_tag_name('a')
+# array_of_links = []
+# new_link = None
+# for i in links:
+#     array_of_links.append(i.get_attribute('href'))
+# if len(array_of_links) > len(spisok_pik):
+#     for i in array_of_links:
+#         if i not in spisok_pik:
+#             new_link = i
+# spisok_pik = array_of_links
+# if new_link != None:
+#     print(new_link)
+#     bot.send_message(719274325, 'Пополнение в ПИК\n'
+#                                 'Ссылка: {}'.format(new_link))
+# driver.quit()
+# time.sleep(10)
 
 driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 driver.get('https://www.ingrad.ru/commercial/')
