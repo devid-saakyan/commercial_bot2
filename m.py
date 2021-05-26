@@ -11,7 +11,7 @@ chrome_options.add_argument("--headless")
 chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument('--port=5000')
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=os.environ.get("PORT", 5000))
 
 spisok_pik = ['https://www.pik.ru/search/sev-kuchino/commercial', 'https://www.pik.ru/search/kk15/commercial', 'https://www.pik.ru/search/i-les/commercial',
               'https://www.pik.ru/search/amur/commercial', 'https://www.pik.ru/search/luga/commercial', 'https://www.pik.ru/search/kuzminskyles/commercial',
@@ -64,7 +64,7 @@ if new_link != None:
 driver.quit()
 time.sleep(10)
 
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=os.environ.get("PORT", 5001))
 driver.get('https://www.ingrad.ru/commercial/')
 time.sleep(5)
 array_of_links = []
@@ -84,7 +84,7 @@ driver.quit()
 time.sleep(10)
 
 
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=os.environ.get("PORT", 5002))
 driver.get('https://samolet.ru/commercial/')
 time.sleep(5)
 array_of_links = []
@@ -104,7 +104,7 @@ driver.quit()
 time.sleep(10)
 
 
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=os.environ.get("PORT", 5005))
 driver.get('https://auction.samolet.ru/catalog')
 time.sleep(5)
 array_of_links = []
@@ -124,7 +124,7 @@ driver.quit()
 time.sleep(10)
 
 
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=os.environ.get("PORT", 5003))
 driver.get('https://fsk.ru/kommercheskaya-nedvizhimost')
 time.sleep(5)
 array_of_links = []
@@ -144,7 +144,7 @@ driver.quit()
 time.sleep(10)
 
 
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=os.environ.get("PORT", 5004))
 driver.get('https://www.lsr.ru/msk/')
 time.sleep(5)
 array_of_links = []
