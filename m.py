@@ -10,6 +10,7 @@ chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 chrome_options.add_argument("--headless")
 chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument('--proxy-server=5000')
 driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
 spisok_pik = ['https://www.pik.ru/search/sev-kuchino/commercial', 'https://www.pik.ru/search/kk15/commercial', 'https://www.pik.ru/search/i-les/commercial',
