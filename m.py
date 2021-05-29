@@ -61,7 +61,7 @@ if new_link != None:
     bot.send_message(719274325, 'Пополнение в ПИК\n'
                                 'Ссылка: {}'.format(new_link))
 driver.quit()
-time.sleep(10)
+time.sleep(5)
 
 driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=os.environ.get("PORT", 5002))
 driver.get('https://www.ingrad.ru/commercial/')
