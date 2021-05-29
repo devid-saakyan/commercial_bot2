@@ -10,7 +10,7 @@ chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 chrome_options.add_argument("--headless")
 chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--no-sandbox")
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=os.environ.get("PORT", 5000))
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=int(os.environ.get("PORT", 5000)))
 
 spisok_pik = ['https://www.pik.ru/search/sev-kuchino/commercial', 'https://www.pik.ru/search/kk15/commercial', 'https://www.pik.ru/search/i-les/commercial',
               'https://www.pik.ru/search/amur/commercial', 'https://www.pik.ru/search/luga/commercial', 'https://www.pik.ru/search/kuzminskyles/commercial',
@@ -63,7 +63,7 @@ if new_link != None:
 driver.quit()
 time.sleep(5)
 
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=os.environ.get("PORT", 5002))
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=int(os.environ.get("PORT", 5002)))
 driver.get('https://www.ingrad.ru/commercial/')
 time.sleep(5)
 array_of_links = []
@@ -83,7 +83,7 @@ driver.quit()
 time.sleep(10)
 
 
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=os.environ.get("PORT", 5003))
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=int(os.environ.get("PORT", 5003)))
 driver.get('https://samolet.ru/commercial/')
 time.sleep(5)
 array_of_links = []
@@ -103,7 +103,7 @@ driver.quit()
 time.sleep(5)
 
 
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=os.environ.get("PORT", 5004))
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=int(os.environ.get("PORT", 5004)))
 driver.get('https://auction.samolet.ru/catalog')
 time.sleep(5)
 array_of_links = []
@@ -123,7 +123,7 @@ driver.quit()
 time.sleep(5)
 
 
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=os.environ.get("PORT", 5005))
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=int(os.environ.get("PORT", 5005)))
 driver.get('https://fsk.ru/kommercheskaya-nedvizhimost')
 time.sleep(5)
 array_of_links = []
@@ -143,7 +143,7 @@ driver.quit()
 time.sleep(5)
 
 
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=os.environ.get("PORT", 5006))
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options, port=int(os.environ.get("PORT", 5006)))
 driver.get('https://www.lsr.ru/msk/')
 time.sleep(5)
 array_of_links = []
@@ -160,4 +160,4 @@ if new_link != None:
     bot.send_message(719274325, 'Пополнение в ЛСР\n'
                                  'Ссылка: {}'.format(new_link))
 driver.quit() 
-time.sleep(10)
+time.sleep(5)
