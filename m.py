@@ -49,7 +49,7 @@ spisok_lsr = ['https://www.lsr.ru/msk/zhilye-kompleksy/zilart/', 'https://www.ls
               'https://www.lsr.ru/msk/zhilye-kompleksy/n-nahabino/', 'https://www.lsr.ru/msk/zhilye-kompleksy/nakhabino-yasnoe/', 'https://www.lsr.ru/msk/zhilye-kompleksy/grunevald/',
               'https://www.lsr.ru/msk/zhilye-kompleksy/new-domodedovo/', 'https://www.lsr.ru/msk/zhilye-kompleksy/donskoy-olimp/']
 #, 'https://www.lsr.ru/msk/biznes-tsentry/novyj-balchug/'
-while true:
+while True:
   driver.get('https://www.pik.ru/projects/commercial')
   print(6)
   time.sleep(5)
