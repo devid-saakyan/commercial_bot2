@@ -8,11 +8,15 @@ bot = telebot.TeleBot(token=token)
 chrome_options = webdriver.ChromeOptions()
 chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 chrome_options.add_argument("--headless")
+print(1)
 chrome_options.add_argument("--disable-dev-shm-usage")
+print(2)
 chrome_options.add_argument("--no-sandbox")
+print(3)
 chrome_options.add_argument("--port")
+print(4)
 driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options, port=5000)
-
+print(5)
 spisok_pik = ['https://www.pik.ru/search/sev-kuchino/commercial', 'https://www.pik.ru/search/kk15/commercial', 'https://www.pik.ru/search/i-les/commercial',
               'https://www.pik.ru/search/amur/commercial', 'https://www.pik.ru/search/luga/commercial', 'https://www.pik.ru/search/kuzminskyles/commercial',
               'https://www.pik.ru/search/bd/commercial','https://www.pik.ru/search/mkr-vostochnoe-butovo/commercial', 'https://www.pik.ru/search/lyubpark/commercial',
@@ -46,11 +50,13 @@ spisok_lsr = ['https://www.lsr.ru/msk/zhilye-kompleksy/zilart/', 'https://www.ls
               'https://www.lsr.ru/msk/zhilye-kompleksy/new-domodedovo/', 'https://www.lsr.ru/msk/zhilye-kompleksy/donskoy-olimp/']
 #, 'https://www.lsr.ru/msk/biznes-tsentry/novyj-balchug/'
 driver.get('https://www.pik.ru/projects/commercial')
+print(6)
 time.sleep(5)
 links = driver.find_element_by_class_name('cmHIDI').find_elements_by_tag_name('a')
 array_of_links = []
 new_link = None
 for i in links:
+  print(7)
     array_of_links.append(i.get_attribute('href'))
 if len(array_of_links) > len(spisok_pik):
     for i in array_of_links:
