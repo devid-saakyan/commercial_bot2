@@ -56,7 +56,7 @@ links = driver.find_element_by_class_name('cmHIDI').find_elements_by_tag_name('a
 array_of_links = []
 new_link = None
 for i in links:
-  print(7)
+    print(7)
     array_of_links.append(i.get_attribute('href'))
 if len(array_of_links) > len(spisok_pik):
     for i in array_of_links:
