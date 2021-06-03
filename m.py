@@ -24,33 +24,37 @@ samolyot_spisok = ['https://samolet.ru/commercial/project/', 'https://samolet.ru
                    'https://samolet.ru/commercial/purchase/subsidies/', 'https://samolet.ru/commercial/purchase/insurance/', 'https://samolet.ru/commercial/purchase/appraisal/',
                    'https://samolet.ru/commercialhttps://samolet.ru/invest/', 'https://samolet.ru/commercial/company/history/', 'https://samolet.ru/commercial/company/chiefs/',
                    'https://samolet.ru/commercial/news/', 'https://samolet.ru/commercial/investors/press/', 'https://samolet.ru/commercial/infograph/', 'https://samolet.ru/commercial/investors/land/',
-                   'https://samolet.ru/commercial/company/requisites/']
-
+                   ]
+#'https://samolet.ru/commercial/company/requisites/'
 pik_spisok = ['https://pik.ru/search/gp/commercial', 'https://pik.ru/search/sev-kuchino/commercial', 'https://pik.ru/search/bp2/commercial',
               'https://pik.ru/search/zhulebino/commercial', 'https://pik.ru/search/i-les/commercial', 'https://pik.ru/search/luberecky/commercial',
               'https://pik.ru/search/sp/commercial', 'https://pik.ru/search/kk15/commercial', 'https://pik.ru/search/luga/commercial',
               'https://pik.ru/search/kuzminskyles/commercial', 'https://pik.ru/search/bd/commercial', 'https://pik.ru/search/mkr-vostochnoe-butovo/commercial',
               'https://pik.ru/search/lyubpark/commercial', 'https://pik.ru/search/sles/commercial', 'https://pik.ru/search/park/commercial',
               'https://pik.ru/search/rk11/commercial', 'https://pik.ru/search/zhiloi-raion-yaroslavskii/commercial', 'https://pik.ru/search/raion-levoberezhnyi/commercial',
-              'https://pik.ru/search/mf/commercial', 'https://pik.ru/search/mkrn-putilkovo/commercial']
+              'https://pik.ru/search/mf/commercial']
+#, 'https://pik.ru/search/mkrn-putilkovo/commercial'
 
 ingrad_spisok = ['https://www.ingrad.ru/projects/mihaylova/select/commercial/all', 'https://www.ingrad.ru/projects/odingrad_family/select/commercial/all',
                  'https://www.ingrad.ru/projects/preobrazhenie/select/commercial/all', 'https://www.ingrad.ru/projects/novo17/select/commercial/all',
                  'https://www.ingrad.ruhttps://www.ingrad.ru/find-apartment', 'https://www.ingrad.ru/projects/pushkino/select/commercial/all',
                  'https://www.ingrad.ru/projects/medved/select/commercial/all', 'https://www.ingrad.ru/projects/vesna/select/commercial/all',
-                 'https://www.ingrad.ru/projects/aventin/select/commercial/all', 'https://www.ingrad.ru/projects/gusbal/select/commercial/all']
+                 'https://www.ingrad.ru/projects/aventin/select/commercial/all']
+#, 'https://www.ingrad.ru/projects/gusbal/select/commercial/all'
 
 fsk_spisok = ['https://fsk.ru/kommercheskaya-nedvizhimost/nastroenie', 'https://fsk.ru/kommercheskaya-nedvizhimost/1-lermontovskij',
               'https://fsk.ru/kommercheskaya-nedvizhimost/rimskiy', 'https://fsk.ru/kommercheskaya-nedvizhimost/datskij-kvartal',
               'https://fsk.ru/kommercheskaya-nedvizhimost/skolkovskiy', 'https://fsk.ru/kommercheskaya-nedvizhimost/pokolenie',
               'https://fsk.ru/kommercheskaya-nedvizhimost/skandinavskiy', 'https://fsk.ru/kommercheskaya-nedvizhimost/novogireevskii',
               'https://fsk.ru/kommercheskaya-nedvizhimost/nekrasovka', 'https://fsk.ru/kommercheskaya-nedvizhimost/pervyj-andreevskij',
-              'https://fsk.ru/kommercheskaya-nedvizhimost/centr-2', 'https://fsk.ru/kommercheskaya-nedvizhimost/ramenskij', 'https://fsk.ru/kommercheskaya-nedvizhimost/solncevo']
+              'https://fsk.ru/kommercheskaya-nedvizhimost/centr-2', 'https://fsk.ru/kommercheskaya-nedvizhimost/ramenskij']
+#, 'https://fsk.ru/kommercheskaya-nedvizhimost/solncevo'
 
 lsr_spisok = ['https://samolet.ru/commercial/msk/zhilye-kompleksy/zilart/', 'https://samolet.ru/commercial/msk/zhilye-kompleksy/leningradka-58/',
               'https://samolet.ru/commercial/msk/zhilye-kompleksy/luchi/', 'https://samolet.ru/commercial/msk/zhilye-kompleksy/n-nahabino/',
               'https://samolet.ru/commercial/msk/zhilye-kompleksy/nakhabino-yasnoe/', 'https://samolet.ru/commercial/msk/zhilye-kompleksy/grunevald/',
-              'https://samolet.ru/commercial/msk/zhilye-kompleksy/new-domodedovo/', 'https://samolet.ru/commercial/msk/zhilye-kompleksy/donskoy-olimp/']
+              'https://samolet.ru/commercial/msk/zhilye-kompleksy/new-domodedovo/']
+#, 'https://samolet.ru/commercial/msk/zhilye-kompleksy/donskoy-olimp/'
 
 pyppeteer.launch(executablePath=EXEC_PATH,
             args=[
@@ -67,7 +71,7 @@ def pik():
     session = HTMLSession(verify=False)
     context = ssl.SSLContext()
     r = session.get(url=url1, headers=headers, verify=False)
-    r.html.render(timeout=20)
+    r.html.render(timeout=1000000)
     content = r.html.html
     spisok = []
     soup = BeautifulSoup(content, 'html.parser')
@@ -87,7 +91,7 @@ def ingrad():
     session = HTMLSession(verify=False)
     context = ssl.SSLContext()
     r = session.get(url=url1, headers = headers, verify = False)
-    r.html.render(timeout=20)
+    r.html.render(timeout=1000000)
     content = r.html.html
     spisok = []
     soup = BeautifulSoup(content, "html.parser").find(class_ = 'project-list')
@@ -105,7 +109,7 @@ def samolyot():
                'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrodiv78.0.3904.70 Safari/537.36'}
     session = HTMLSession(verify=False)
     r = session.get(url=url1, headers=headers, verify=False)
-    r.html.render(timeout=20)
+    r.html.render(timeout=1000000)
     content = r.html.html
     #print(content)
     spisok = []
@@ -123,7 +127,7 @@ def fsk():
                'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrodiv78.0.3904.70 Safari/537.36'}
     session = HTMLSession(verify=False)
     r = session.get(url=url1, headers=headers, verify=False)
-    r.html.render(timeout=20)
+    r.html.render(timeout=1000000)
     content = r.html.html
     spisok = []
     soup = BeautifulSoup(content, 'html.parser').find_all(class_='complex-card')
@@ -141,7 +145,7 @@ def lsr():
                'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrodiv78.0.3904.70 Safari/537.36'}
     session = HTMLSession(verify=False)
     r = session.get(url=url1, headers=headers, verify=False)
-    r.html.render(timeout=20)
+    r.html.render(timeout=1000000)
     content = r.html.html
     spisok = []
     soup = BeautifulSoup(content, 'html.parser').find_all(class_='col-32 col-md-15 col-md-post-2 col-bg-12 col-bg-post-1 col-lg-8 '
