@@ -69,7 +69,7 @@ def pik():
     session = HTMLSession(verify=False)
     context = ssl.SSLContext()
     r = session.get(url=url1, headers=headers, verify=False)
-    r.html.render(timeout=1000000)
+    r.html.render(timeout=50)
     content = r.html.html
     spisok = []
     soup = BeautifulSoup(content, 'html.parser')
