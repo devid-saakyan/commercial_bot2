@@ -89,7 +89,7 @@ def ingrad():
     session = HTMLSession(verify=False)
     context = ssl.SSLContext()
     r = session.get(url=url1, headers = headers, verify = False)
-    r.html.render(timeout=1000000)
+    r.html.render(timeout=50)
     content = r.html.html
     spisok = []
     soup = BeautifulSoup(content, "html.parser").find(class_ = 'project-list')
@@ -107,7 +107,7 @@ def samolyot():
                'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrodiv78.0.3904.70 Safari/537.36'}
     session = HTMLSession(verify=False)
     r = session.get(url=url1, headers=headers, verify=False)
-    r.html.render(timeout=1000000)
+    r.html.render(timeout=50)
     content = r.html.html
     #print(content)
     spisok = []
@@ -125,7 +125,7 @@ def fsk():
                'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrodiv78.0.3904.70 Safari/537.36'}
     session = HTMLSession(verify=False)
     r = session.get(url=url1, headers=headers, verify=False)
-    r.html.render(timeout=1000000)
+    r.html.render(timeout=50)
     content = r.html.html
     spisok = []
     soup = BeautifulSoup(content, 'html.parser').find_all(class_='complex-card')
@@ -143,7 +143,7 @@ def lsr():
                'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrodiv78.0.3904.70 Safari/537.36'}
     session = HTMLSession(verify=False)
     r = session.get(url=url1, headers=headers, verify=False)
-    r.html.render(timeout=1000000)
+    r.html.render(timeout=50)
     content = r.html.html
     spisok = []
     soup = BeautifulSoup(content, 'html.parser').find_all(class_='col-32 col-md-15 col-md-post-2 col-bg-12 col-bg-post-1 col-lg-8 '
