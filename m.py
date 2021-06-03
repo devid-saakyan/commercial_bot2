@@ -14,7 +14,7 @@ EXEC_PATH = os.environ.get("GOOGLE_CHROME_SHIM", None)
 samolyot_spisok = ['https://samolet.ru/commercial/project/', 'https://samolet.ru/commercial/project/novoe-vnukovo/', 'https://samolet.ru/commercial/project/zarechye-park/',
                    'https://samolet.ru/commercial/project/mytischi-park/', 'https://samolet.ru/commercial/project/novodanilovskaya-8/', 'https://samolet.ru/commercial/project/sputnik/',
                    'https://samolet.ru/commercial/project/ostafevo/', 'https://samolet.ru/commercial/project/prigorod-lesnoe/', 'https://samolet.ru/commercial/project/alhimovo/',
-                   'https://samolet.ru/commercial/project/bolshoe-putilkovo/', 'https://samolet.ru/commercial/project/lyubercy/', 'https://samolet.ru/commercial/project/nekrasovka/',
+                   'https://samolet.ru/commercial/project/lyubercy/', 'https://samolet.ru/commercial/project/nekrasovka/',
                    'https://samolet.ru/commercial/project/tomilino/', 'https://samolet.ru/commercialhttps://samolet.ru/novostroyki/', 'https://samolet.ru/commercial//samolet.ru/furniture/',
                    'https://samolet.ru/commercial/parking/', 'https://samolet.ru/commercial/storage/', 'https://samolet.ru/commercial/commercial/', 'https://samolet.ru/commercial/promo/',
                    'https://samolet.ru/commercial/settlement/', 'https://samolet.ru/commercial/purchase/refinancing/', 'https://samolet.ru/commercial/purchase/concession/',
@@ -24,23 +24,21 @@ samolyot_spisok = ['https://samolet.ru/commercial/project/', 'https://samolet.ru
                    'https://samolet.ru/commercial/purchase/subsidies/', 'https://samolet.ru/commercial/purchase/insurance/', 'https://samolet.ru/commercial/purchase/appraisal/',
                    'https://samolet.ru/commercialhttps://samolet.ru/invest/', 'https://samolet.ru/commercial/company/history/', 'https://samolet.ru/commercial/company/chiefs/',
                    'https://samolet.ru/commercial/news/', 'https://samolet.ru/commercial/investors/press/', 'https://samolet.ru/commercial/infograph/', 'https://samolet.ru/commercial/investors/land/',
-                   ]
-#'https://samolet.ru/commercial/company/requisites/'
+                   'https://samolet.ru/commercial/company/requisites/']
+# 'https://samolet.ru/commercial/project/bolshoe-putilkovo/',
 pik_spisok = ['https://pik.ru/search/gp/commercial', 'https://pik.ru/search/sev-kuchino/commercial', 'https://pik.ru/search/bp2/commercial',
               'https://pik.ru/search/zhulebino/commercial', 'https://pik.ru/search/i-les/commercial', 'https://pik.ru/search/luberecky/commercial',
               'https://pik.ru/search/sp/commercial', 'https://pik.ru/search/kk15/commercial', 'https://pik.ru/search/luga/commercial',
               'https://pik.ru/search/kuzminskyles/commercial', 'https://pik.ru/search/bd/commercial', 'https://pik.ru/search/mkr-vostochnoe-butovo/commercial',
               'https://pik.ru/search/lyubpark/commercial', 'https://pik.ru/search/sles/commercial', 'https://pik.ru/search/park/commercial',
               'https://pik.ru/search/rk11/commercial', 'https://pik.ru/search/zhiloi-raion-yaroslavskii/commercial', 'https://pik.ru/search/raion-levoberezhnyi/commercial',
-              'https://pik.ru/search/mf/commercial']
-#, 'https://pik.ru/search/mkrn-putilkovo/commercial'
+              'https://pik.ru/search/mf/commercial', 'https://pik.ru/search/mkrn-putilkovo/commercial']
 
 ingrad_spisok = ['https://www.ingrad.ru/projects/mihaylova/select/commercial/all', 'https://www.ingrad.ru/projects/odingrad_family/select/commercial/all',
                  'https://www.ingrad.ru/projects/preobrazhenie/select/commercial/all', 'https://www.ingrad.ru/projects/novo17/select/commercial/all',
                  'https://www.ingrad.ruhttps://www.ingrad.ru/find-apartment', 'https://www.ingrad.ru/projects/pushkino/select/commercial/all',
                  'https://www.ingrad.ru/projects/medved/select/commercial/all', 'https://www.ingrad.ru/projects/vesna/select/commercial/all',
-                 'https://www.ingrad.ru/projects/aventin/select/commercial/all']
-#, 'https://www.ingrad.ru/projects/gusbal/select/commercial/all'
+                 'https://www.ingrad.ru/projects/aventin/select/commercial/all', 'https://www.ingrad.ru/projects/gusbal/select/commercial/all']
 
 fsk_spisok = ['https://fsk.ru/kommercheskaya-nedvizhimost/nastroenie', 'https://fsk.ru/kommercheskaya-nedvizhimost/1-lermontovskij',
               'https://fsk.ru/kommercheskaya-nedvizhimost/rimskiy', 'https://fsk.ru/kommercheskaya-nedvizhimost/datskij-kvartal',
@@ -162,25 +160,30 @@ while True:
     for i in pik():
         if i not in pik_spisok:
             bot.send_message(719274325, "Пополнение в ПИК\nСсылка: {}".format(i))
+            bot.send_message(255056634, "Пополнение в ПИК\nСсылка: {}".format(i))
     pik_spisok = pik()
 
     for i in ingrad():
         if i not in ingrad_spisok:
             bot.send_message(719274325, "Пополнение в Инград\nСсылка: {}".format(i))
+            bot.send_message(255056634, "Пополнение в Инград\nСсылка: {}".format(i))
     ingrad_spisok = ingrad()
 
     for i in samolyot():
         if i not in samolyot_spisok:
             bot.send_message(719274325, "Пополнение в Самолёт\nСсылка: {}".format(i))
+            bot.send_message(255056634, "Пополнение в Самолёт\nСсылка: {}".format(i))
     samolyot_spisok = samolyot()
 
     for i in fsk():
         if i not in fsk_spisok:
             bot.send_message(719274325, "Пополнение в ФСК\nСсылка: {}".format(i))
+            bot.send_message(255056634, "Пополнение в ФСК\nСсылка: {}".format(i))
     fsk_spisok = fsk()
 
     for i in lsr():
         if i not in lsr_spisok:
             bot.send_message(719274325, "Пополнение в ЛСР\nСсылка: {}".format(i))
+            bot.send_message(255056634, "Пополнение в ЛСР\nСсылка: {}".format(i))
     lsr_spisok = lsr()
     sleep(30)
