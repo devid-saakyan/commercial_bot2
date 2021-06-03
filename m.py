@@ -1,13 +1,16 @@
 from bs4 import BeautifulSoup, SoupStrainer
 import ssl
 from requests_html import HTMLSession
-import pyppdf.patch_pyppeteer
+import pyppdf
+import pyppeteer
 import telebot
 from time import sleep
+import os
 
 token = '1790070240:AAH4qSR3T2gbh-HCEH9ZR1FXNjL812W6-qU'
 bot = telebot.TeleBot(token=token)
 
+EXEC_PATH = os.environ.get("GOOGLE_CHROME_SHIM", None)
 samolyot_spisok = ['https://samolet.ru/commercial/project/', 'https://samolet.ru/commercial/project/novoe-vnukovo/', 'https://samolet.ru/commercial/project/zarechye-park/',
                    'https://samolet.ru/commercial/project/mytischi-park/', 'https://samolet.ru/commercial/project/novodanilovskaya-8/', 'https://samolet.ru/commercial/project/sputnik/',
                    'https://samolet.ru/commercial/project/ostafevo/', 'https://samolet.ru/commercial/project/prigorod-lesnoe/', 'https://samolet.ru/commercial/project/alhimovo/',
@@ -49,7 +52,14 @@ lsr_spisok = ['https://samolet.ru/commercial/msk/zhilye-kompleksy/zilart/', 'htt
               'https://samolet.ru/commercial/msk/zhilye-kompleksy/nakhabino-yasnoe/', 'https://samolet.ru/commercial/msk/zhilye-kompleksy/grunevald/',
               'https://samolet.ru/commercial/msk/zhilye-kompleksy/new-domodedovo/', 'https://samolet.ru/commercial/msk/zhilye-kompleksy/donskoy-olimp/']
 
-
+pyppeteer.launch(executablePath=EXEC_PATH,
+            args=[
+                "--no-sandbox",
+                "--single-process",
+                "--disable-dev-shm-usage",
+                "--disable-gpu",
+                "--no-zygote",
+            ],)
 def pik():
     url1 = 'https://www.pik.ru/projects/commercial'
     headers = {'accept': '*/*',
@@ -149,22 +159,22 @@ while True:
         if i not in pik_spisok:
             bot.send_message(719274325, "Пополнение в ПИК\nСсылка: {}".format(i))
     pik_spisok = pik()
-    
+
     for i in ingrad():
         if i not in ingrad_spisok:
             bot.send_message(719274325, "Пополнение в Инград\nСсылка: {}".format(i))
     ingrad_spisok = ingrad()
-    
+
     for i in samolyot():
         if i not in samolyot_spisok:
             bot.send_message(719274325, "Пополнение в Самолёт\nСсылка: {}".format(i))
     samolyot_spisok = samolyot()
-    
+
     for i in fsk():
         if i not in fsk_spisok:
             bot.send_message(719274325, "Пополнение в ФСК\nСсылка: {}".format(i))
     fsk_spisok = fsk()
-    
+
     for i in lsr():
         if i not in lsr_spisok:
             bot.send_message(719274325, "Пополнение в ЛСР\nСсылка: {}".format(i))
