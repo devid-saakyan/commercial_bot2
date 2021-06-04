@@ -64,120 +64,143 @@ def launch():
                 "--no-zygote",
             ],)
   return browser
-launch()
+
+def close(browser):
+    return browser.close()
+
 def pik():
-    url1 = 'https://www.pik.ru/projects/commercial'
-    headers = {'accept': '*/*',
-                   'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrodiv78.0.3904.70 Safari/537.36'}
-    session = HTMLSession(verify=False)
-    context = ssl.SSLContext()
-    r = session.get(url=url1, headers=headers, verify=False)
-    r.html.render(timeout=1000)
-    content = r.html.html
-    spisok = []
-    soup = BeautifulSoup(content, 'html.parser')
-    spisok = []
-    for link in soup.find_all('a'):
-        try:
-            spisok.append('https://pik.ru' + str(link.get('href')))
-        except:
-            bot.send_message(719274325, 'Ошибка в ПИК')
-    spisok = [i for i in spisok if "/commercial" in i]
-    session.close()
-    return spisok
+    try:
+        url1 = 'https://www.pik.ru/projects/commercial'
+        headers = {'accept': '*/*',
+                       'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrodiv78.0.3904.70 Safari/537.36'}
+        session = HTMLSession(verify=False)
+        context = ssl.SSLContext()
+        r = session.get(url=url1, headers=headers, verify=False)
+        r.html.render(timeout=1000)
+        content = r.html.html
+        spisok = []
+        soup = BeautifulSoup(content, 'html.parser')
+        spisok = []
+        for link in soup.find_all('a'):
+            try:
+                spisok.append('https://pik.ru' + str(link.get('href')))
+            except:
+                bot.send_message(719274325, 'Ошибка в ПИК')
+        spisok = [i for i in spisok if "/commercial" in i]
+        session.close()
+        return spisok
+    except:
+        print('ошибка')
+        return []
+
 
 def ingrad():
-    url1 = 'https://www.ingrad.ru/commercial/'
-    headers = {'accept': '*/*',
-               'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrodiv78.0.3904.70 Safari/537.36'}
-    session = HTMLSession(verify=False)
-    context = ssl.SSLContext()
-    r = session.get(url=url1, headers = headers, verify = False)
-    r.html.render(timeout=1000)
-    content = r.html.html
-    spisok = []
-    soup = BeautifulSoup(content, "html.parser").find(class_ = 'project-list')
-    for link in soup.find_all('a'):
-        try:
-            spisok.append('https://www.ingrad.ru' + str(link.get('href')))
-        except:
-            bot.send_message(719274325, 'Ошибка в инград')
-    session.close()
-    return spisok
+    try:
+        url1 = 'https://www.ingrad.ru/commercial/'
+        headers = {'accept': '*/*',
+                   'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrodiv78.0.3904.70 Safari/537.36'}
+        session = HTMLSession(verify=False)
+        context = ssl.SSLContext()
+        r = session.get(url=url1, headers = headers, verify = False)
+        r.html.render(timeout=1000)
+        content = r.html.html
+        spisok = []
+        soup = BeautifulSoup(content, "html.parser").find(class_ = 'project-list')
+        for link in soup.find_all('a'):
+            try:
+                spisok.append('https://www.ingrad.ru' + str(link.get('href')))
+            except:
+                bot.send_message(719274325, 'Ошибка в инград')
+        session.close()
+        return spisok
+    except:
+        print('ошибка')
+        return []
 
 
 def samolyot():
-    url1 = 'https://samolet.ru/commercial/'
-    headers = {'accept': '*/*',
-               'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrodiv78.0.3904.70 Safari/537.36'}
-    session = HTMLSession(verify=False)
-    r = session.get(url=url1, headers=headers, verify=False)
-    r.html.render(timeout=1000)
-    content = r.html.html
-    #print(content)
-    spisok = []
-    soup = BeautifulSoup(content, 'html.parser').find_all(class_ = 'menu__link js-ga-h _regular')
-    for list in soup:
-        try:
-            spisok.append("https://samolet.ru/commercial" + str(list.get('href')))
-        except:
-            bot.send_message(719274325, 'Ошибка в самолёт')
-    session.close()
-    return spisok
+    try:
+        url1 = 'https://samolet.ru/commercial/'
+        headers = {'accept': '*/*',
+                   'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrodiv78.0.3904.70 Safari/537.36'}
+        session = HTMLSession(verify=False)
+        r = session.get(url=url1, headers=headers, verify=False)
+        r.html.render(timeout=1000)
+        content = r.html.html
+        spisok = []
+        soup = BeautifulSoup(content, 'html.parser').find_all(class_ = 'menu__link js-ga-h _regular')
+        for list in soup:
+            try:
+                spisok.append("https://samolet.ru/commercial" + str(list.get('href')))
+            except:
+                bot.send_message(719274325, 'Ошибка в самолёт')
+        session.close()
+        return spisok
+    except:
+        print('ошибка')
+        return []
 
 def fsk():
-    url1 = 'https://fsk.ru/kommercheskaya-nedvizhimost?page=1'
-    headers = {'accept': '*/*',
-               'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrodiv78.0.3904.70 Safari/537.36'}
-    session = HTMLSession(verify=False)
-    r = session.get(url=url1, headers=headers, verify=False)
-    r.html.render(timeout=1000)
-    content = r.html.html
-    spisok = []
-    soup = BeautifulSoup(content, 'html.parser').find_all(class_='complex-card')
-    print(soup)
-    for link in soup:
-        try:
-            spisok.append('https://fsk.ru' + str(link.get('href')))
-        except:
-            bot.send_message(719274325, 'Ошибка в фск')
-    session.close()
-    return spisok
+    try:
+        url1 = 'https://fsk.ru/kommercheskaya-nedvizhimost?page=1'
+        headers = {'accept': '*/*',
+                   'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrodiv78.0.3904.70 Safari/537.36'}
+        session = HTMLSession(verify=False)
+        r = session.get(url=url1, headers=headers, verify=False)
+        r.html.render(timeout=1000)
+        content = r.html.html
+        spisok = []
+        soup = BeautifulSoup(content, 'html.parser').find_all(class_='complex-card')
+        for link in soup:
+            try:
+                spisok.append('https://fsk.ru' + str(link.get('href')))
+            except:
+                bot.send_message(719274325, 'Ошибка в фск')
+        session.close()
+        return spisok
+    except:
+        print('ошибка')
+        return []
 
 def lsr():
-    url1 = 'https://www.lsr.ru/msk/'
-    headers = {'accept': '*/*',
-               'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrodiv78.0.3904.70 Safari/537.36'}
-    session = HTMLSession(verify=False)
-    r = session.get(url=url1, headers=headers, verify=False)
-    r.html.render(timeout=1000)
-    content = r.html.html
-    spisok = []
-    soup = BeautifulSoup(content, 'html.parser').find_all(class_='col-32 col-md-15 col-md-post-2 col-bg-12 col-bg-post-1 col-lg-8 '
-                                                             'col-xlg-8 col-xlg-post-1 b-build-card b-tabs__content b-tabs__content is-active')
-    print(soup)
-    for i in soup:
-        try:
-            spisok.append("https://samolet.ru/commercial" + str(i.find('a').get('href')))
-        except:
-            bot.send_message(719274325, 'Ошибка в ЛСР')
-    session.close()
-    return spisok
+    try:
+        url1 = 'https://www.lsr.ru/msk/'
+        headers = {'accept': '*/*',
+                   'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrodiv78.0.3904.70 Safari/537.36'}
+        session = HTMLSession(verify=False)
+        r = session.get(url=url1, headers=headers, verify=False)
+        r.html.render(timeout=1000)
+        content = r.html.html
+        spisok = []
+        soup = BeautifulSoup(content, 'html.parser').find_all(class_='col-32 col-md-15 col-md-post-2 col-bg-12 col-bg-post-1 col-lg-8 '
+                                                                 'col-xlg-8 col-xlg-post-1 b-build-card b-tabs__content b-tabs__content is-active')
+        for i in soup:
+            try:
+                spisok.append("https://samolet.ru/commercial" + str(i.find('a').get('href')))
+            except:
+                bot.send_message(719274325, 'Ошибка в ЛСР')
+        session.close()
+        return spisok
+    except:
+        print('ошибка')
+        return []
 
-while True: 
+while True:
     launch()
     for i in pik():
         if i not in pik_spisok:
             bot.send_message(719274325, "Пополнение в ПИК\nСсылка: {}".format(i))
             #bot.send_message(255056634, "Пополнение в ПИК\nСсылка: {}".format(i))
-    pik_spisok = pik()
+    if pik() != []:
+        pik_spisok = pik()
     print('сделал проверку пика')
 
     for i in ingrad():
         if i not in ingrad_spisok:
             bot.send_message(719274325, "Пополнение в Инград\nСсылка: {}".format(i))
             #bot.send_message(255056634, "Пополнение в Инград\nСсылка: {}".format(i))
-    ingrad_spisok = ingrad()
+    if ingrad() != []:
+        ingrad_spisok = ingrad()
     print('сделал проверку инграда')
 
 
@@ -185,20 +208,26 @@ while True:
         if i not in samolyot_spisok:
             bot.send_message(719274325, "Пополнение в Самолёт\nСсылка: {}".format(i))
             #bot.send_message(255056634, "Пополнение в Самолёт\nСсылка: {}".format(i))
-    samolyot_spisok = samolyot()
+    if samolyot() != []:
+        samolyot_spisok = samolyot()
     print('сделал проверку самолёт')
 
     for i in fsk():
         if i not in fsk_spisok:
             bot.send_message(719274325, "Пополнение в ФСК\nСсылка: {}".format(i))
             #bot.send_message(255056634, "Пополнение в ФСК\nСсылка: {}".format(i))
-    fsk_spisok = fsk()
+    if fsk() != []:
+        fsk_spisok = fsk()
     print('сделал проверку фск')
 
     for i in lsr():
         if i not in lsr_spisok:
             bot.send_message(719274325, "Пополнение в ЛСР\nСсылка: {}".format(i))
             #bot.send_message(255056634, "Пополнение в ЛСР\nСсылка: {}".format(i))
-    lsr_spisok = lsr()
+    if lsr() != []:
+        lsr_spisok = lsr()
     print('сделал проверку ЛСР')
+    
+    close(launch())
+    
     sleep(30)
