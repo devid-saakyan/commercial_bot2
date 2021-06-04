@@ -54,8 +54,8 @@ lsr_spisok = ['https://samolet.ru/commercial/msk/zhilye-kompleksy/zilart/', 'htt
               'https://samolet.ru/commercial/msk/zhilye-kompleksy/new-domodedovo/']
 #, 'https://samolet.ru/commercial/msk/zhilye-kompleksy/donskoy-olimp/'
 
-async def launch():
-  browser = await pyppeteer.launch(executablePath=EXEC_PATH,
+def launch():
+  browser = pyppeteer.launch(executablePath=EXEC_PATH,
             args=[
                 "--no-sandbox",
                 #"--single-process",
@@ -164,7 +164,8 @@ def lsr():
     session.close()
     return spisok
 
-while True:
+while True: 
+    launch()
     for i in pik():
         if i not in pik_spisok:
             bot.send_message(719274325, "Пополнение в ПИК\nСсылка: {}".format(i))
