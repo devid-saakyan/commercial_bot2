@@ -54,7 +54,8 @@ lsr_spisok = ['https://samolet.ru/commercial/msk/zhilye-kompleksy/zilart/', 'htt
               'https://samolet.ru/commercial/msk/zhilye-kompleksy/new-domodedovo/']
 #, 'https://samolet.ru/commercial/msk/zhilye-kompleksy/donskoy-olimp/'
 
-await pyppeteer.launch(executablePath=EXEC_PATH,
+async def launch():
+  browser = await pyppeteer.launch(executablePath=EXEC_PATH,
             args=[
                 "--no-sandbox",
                 #"--single-process",
@@ -62,6 +63,8 @@ await pyppeteer.launch(executablePath=EXEC_PATH,
                 "--disable-gpu",
                 "--no-zygote",
             ],)
+  return browser
+launch()
 def pik():
     url1 = 'https://www.pik.ru/projects/commercial'
     headers = {'accept': '*/*',
