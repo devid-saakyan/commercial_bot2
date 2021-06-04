@@ -162,28 +162,34 @@ while True:
             bot.send_message(719274325, "Пополнение в ПИК\nСсылка: {}".format(i))
             #bot.send_message(255056634, "Пополнение в ПИК\nСсылка: {}".format(i))
     pik_spisok = pik()
+    print('сделал проверку пика')
 
     for i in ingrad():
         if i not in ingrad_spisok:
             bot.send_message(719274325, "Пополнение в Инград\nСсылка: {}".format(i))
             #bot.send_message(255056634, "Пополнение в Инград\nСсылка: {}".format(i))
     ingrad_spisok = ingrad()
+    print('сделал проверку инграда')
+
 
     for i in samolyot():
         if i not in samolyot_spisok:
             bot.send_message(719274325, "Пополнение в Самолёт\nСсылка: {}".format(i))
             #bot.send_message(255056634, "Пополнение в Самолёт\nСсылка: {}".format(i))
     samolyot_spisok = samolyot()
+    print('сделал проверку самолёт')
 
     for i in fsk():
         if i not in fsk_spisok:
             bot.send_message(719274325, "Пополнение в ФСК\nСсылка: {}".format(i))
             #bot.send_message(255056634, "Пополнение в ФСК\nСсылка: {}".format(i))
     fsk_spisok = fsk()
+    print('сделал проверку фск')
 
     for i in lsr():
         if i not in lsr_spisok:
             bot.send_message(719274325, "Пополнение в ЛСР\nСсылка: {}".format(i))
             #bot.send_message(255056634, "Пополнение в ЛСР\nСсылка: {}".format(i))
     lsr_spisok = lsr()
+    print('сделал проверку ЛСР')
     sleep(30)
