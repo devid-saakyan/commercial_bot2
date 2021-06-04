@@ -54,7 +54,7 @@ lsr_spisok = ['https://samolet.ru/commercial/msk/zhilye-kompleksy/zilart/', 'htt
               'https://samolet.ru/commercial/msk/zhilye-kompleksy/new-domodedovo/']
 #, 'https://samolet.ru/commercial/msk/zhilye-kompleksy/donskoy-olimp/'
 
-pyppeteer.launch(executablePath=EXEC_PATH,
+await pyppeteer.launch(executablePath=EXEC_PATH,
             args=[
                 "--no-sandbox",
                 #"--single-process",
@@ -80,6 +80,7 @@ def pik():
         except:
             bot.send_message(719274325, 'Ошибка в ПИК')
     spisok = [i for i in spisok if "/commercial" in i]
+    session.close()
     return spisok
 
 def ingrad():
@@ -98,6 +99,7 @@ def ingrad():
             spisok.append('https://www.ingrad.ru' + str(link.get('href')))
         except:
             bot.send_message(719274325, 'Ошибка в инград')
+    session.close()
     return spisok
 
 
@@ -117,6 +119,7 @@ def samolyot():
             spisok.append("https://samolet.ru/commercial" + str(list.get('href')))
         except:
             bot.send_message(719274325, 'Ошибка в самолёт')
+    session.close()
     return spisok
 
 def fsk():
@@ -135,6 +138,7 @@ def fsk():
             spisok.append('https://fsk.ru' + str(link.get('href')))
         except:
             bot.send_message(719274325, 'Ошибка в фск')
+    session.close()
     return spisok
 
 def lsr():
@@ -154,6 +158,7 @@ def lsr():
             spisok.append("https://samolet.ru/commercial" + str(i.find('a').get('href')))
         except:
             bot.send_message(719274325, 'Ошибка в ЛСР')
+    session.close()
     return spisok
 
 while True:
