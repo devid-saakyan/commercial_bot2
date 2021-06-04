@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup, SoupStrainer
 import ssl
 from requests_html import HTMLSession
-import pyppdf
+import pyppdf.patch_pyppeteer
 import pyppeteer
 import telebot
 from time import sleep
