@@ -185,7 +185,7 @@ while True:
     temp = pik()
     for i in temp:
         if i not in pik_spisok:
-            bot.send_message(719274325, "Пополнение в ПИК\nСсылка: {}".format(temp))
+            bot.send_message(719274325, "Пополнение в ПИК\nСсылка: {}".format(i))
             #bot.send_message(255056634, "Пополнение в ПИК\nСсылка: {}".format(i))
     if len(temp) != 0:
         pik_spisok = temp
@@ -194,7 +194,7 @@ while True:
     temp = ingrad()
     for i in temp:
         if i not in ingrad_spisok:
-            bot.send_message(719274325, "Пополнение в Инград\nСсылка: {}".format(i))
+            bot.send_message(719274325, "Пополнение в Инград\nСсылка: {}".format(temp))
             #bot.send_message(255056634, "Пополнение в Инград\nСсылка: {}".format(i))
     if len(temp) != 0:
         ingrad_spisok = temp
